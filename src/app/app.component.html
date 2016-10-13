@@ -1,18 +1,11 @@
 <header>
-  <nav>
-    <a [routerLink]="['']">Home</a>
-    <a [routerLink]="['about']">About</a>
-  </nav>
+  <my-header></my-header>
 </header>
 <main>
-  <h1>Hello from {{api.title}}!</h1>
-
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/angular.png">
-
-  <router-outlet></router-outlet>
+  <h1>{{api.title}}</h1>
+  <my-home></my-home>
+  <!--<router-outlet></router-outlet>-->
 </main>
 <footer>
-  <a [href]="url">Webpack Angular 2 Starter</a>
-  <button class="btn btn-danger">Hrer my check</button>
+
 </footer>
