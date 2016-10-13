@@ -4,8 +4,12 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { RecipeComponent } from './recipes/recipes.component';
 import { HeaderComponent } from './header/header.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { FooterComponent } from './footer/footer.component';
+
 import { ApiService } from './shared';
 // import { routing } from './app.routing';
 
@@ -19,8 +23,11 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent
+    RecipeComponent,
+    HeaderComponent,
+    RecipeDetailComponent,
+    RecipeListComponent,
+    FooterComponent
   ],
   providers: [
     ApiService
