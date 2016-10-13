@@ -12,7 +12,7 @@ export class ShoppingComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Hello Home');
+    console.log('Hello Shop');
   }
 
 }

@@ -10,6 +10,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { FooterComponent } from './footer/footer.component';
 import {ShoppingComponent} from './shopping/shopping.component';
+import {RecipeItemComponent} from './recipes/recipe-list/recipe-item.component';
+
 
 
 import { ApiService } from './shared';
@@ -31,7 +33,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     RecipeDetailComponent,
     RecipeListComponent,
     ShoppingComponent,
-    FooterComponent
+    FooterComponent,
+    RecipeItemComponent
   ],
   providers: [
     ApiService
