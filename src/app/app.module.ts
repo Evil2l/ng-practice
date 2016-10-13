@@ -9,9 +9,11 @@ import { HeaderComponent } from './header/header.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { FooterComponent } from './footer/footer.component';
+import {ShoppingComponent} from './shopping/shopping.component';
+
 
 import { ApiService } from './shared';
-// import { routing } from './app.routing';
+import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -19,7 +21,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   declarations: [
     AppComponent,
@@ -27,6 +30,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     HeaderComponent,
     RecipeDetailComponent,
     RecipeListComponent,
+    ShoppingComponent,
     FooterComponent
   ],
   providers: [
