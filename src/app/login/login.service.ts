@@ -1,18 +1,14 @@
-export class LoginService{
+export class LoginService {
 
     loggedIn = false;
 
-    constructor(){
+    constructor() {}
 
-    }
-
-    login(user, password){
-        if(user && password){
+    login(user, password) {
+        if (user && password) {
             this.loggedIn = true;
-
         }
         return this.loggedIn;
-
     }
 
 

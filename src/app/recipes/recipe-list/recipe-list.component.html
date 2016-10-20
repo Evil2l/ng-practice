@@ -1,16 +1,17 @@
 <h2>Recipe List</h2>
 <div class="row">
   <div class="col-xs-12">
-    <a href="#" class="btn btn-success">New Recipe</a>
+    <a href="#" class="btn btn-success" routerLink="new">New Recipe</a>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
       <li class="list-group-item">
-        <my-recipe-item *ngFor="let recipe of recipes"
-          [recipe]="recipe"
-          (click)="onSelect(recipe)"
+        <my-recipe-item
+            *ngFor="let recipe of recipes; let i = index"
+            [recipe]="recipe"
+            [recipeId]="i"
         ></my-recipe-item>
       </li>
     </ul>

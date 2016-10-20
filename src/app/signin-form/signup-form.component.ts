@@ -1,5 +1,5 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core'
-import { ActivatedRoute, Router} from '@angular/router';
+import { Component } from '@angular/core';
+import {User} from "../shared/user.model";
 
 @Component({
   template: `
@@ -7,16 +7,20 @@ import { ActivatedRoute, Router} from '@angular/router';
         <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" 
+            id="exampleInputEmail1" aria-describedby="emailHelp" 
+            placeholder="Enter email"
+            >
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+    >
   </div>
   
   <button type="submit" class="btn btn-primary"
-  (click)="onSave()">Sign In</button>
+  >Sign In</button>
 </form>
         
             
@@ -25,11 +29,13 @@ import { ActivatedRoute, Router} from '@angular/router';
 `
 })
 
-export class SignupFormComponent{
-
+export class SignupFormComponent {
+  user: User;
 
 
   constructor(
-  ){}
+  ) {}
+
+
 
 }

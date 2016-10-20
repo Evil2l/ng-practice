@@ -1,26 +1,29 @@
 import{ Injectable } from '@angular/core';
 
-import {CanActivate, Router,
-    ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import { LoginService } from './login.service'
+import {
+  CanActivate,
+  Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from '@angular/router';
+
+import { LoginService } from './login.service';
 
 @Injectable()
 
-export class LoggedInGuard implements CanActivate{
+export class LoggedInGuard implements CanActivate {
 
     constructor(
         private router: Router,
         private loginService: LoginService
-    ){
-
-    }
+    ) {}
 
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ){
-        console.log('intersecpted', state.url);
-        if(!this.loginService.loggedIn){
+    ) {
+        console.log('intercepted', state.url);
+        if (!this.loginService.loggedIn) {
             this.router.navigate(['/login'], {
                 queryParams: {
                     destination: state.url
@@ -28,7 +31,7 @@ export class LoggedInGuard implements CanActivate{
             });
             return false;
         }
-        return  true;
+        return true;
 
     }
 

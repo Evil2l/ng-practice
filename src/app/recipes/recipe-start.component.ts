@@ -1,3 +1,10 @@
-/**
- * Created by andrey on 17.10.16.
- */
+import { Component} from '@angular/core';
+
+@Component({
+    selector: 'my-recipe-start',
+    template: `<h1>Please select a recipe</h1>`
+})
+export class RecipeStartComponent{
+
+
+}

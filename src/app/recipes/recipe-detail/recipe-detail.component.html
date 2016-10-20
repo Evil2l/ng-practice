@@ -1,27 +1,30 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="{{selectedRecipe?.imagePath}}" alt="" class="img-responsive">
+    <img src="{{selectedRecipe?.imagePath}}" alt="" class="img-fluid">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1></h1>
+    <h1>{{selectedRecipe?.name}}</h1>
   </div>
   <div class="col-xs-12">
-    <button class="btn btn-success">To Shopping List</button>
-    <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-success"
+            (click)="onAddToShopping()"
+    >To Shopping List</button>
+    <button class="btn btn-primary" (click)="onEditRecipe()">Edit</button>
+    <button class="btn btn-danger" (click)="onDeleteRecipe()">Delete</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <p></p>
+    <p>{{selectedRecipe?.description}}</p>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Ingredients
+    Ingredients:
+    <p *ngFor="let item of selectedRecipe?.ingredients">{{item.name}}-({{item.amount}})</p>
   </div>
 </div>
 

@@ -14,5 +14,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     console.log('Hello About');
   }
+  logOut() {
+
+  }
 
 }

@@ -1,11 +1,12 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { Component, Input} from '@angular/core';
+import { Recipe } from '../../shared/recipe.model';
 
 @Component({
     selector: 'my-recipe-item',
     template: `
         <a class="clearfix"
-        
+          routerLink="{{recipeId}}"
+          routerLinkActive="active"
         >
           <div class="pull-xs-left">
             <h4 class="list-group-item-heading">{{recipe?.name}}</h4>
@@ -20,16 +21,10 @@ import { Recipe } from '../recipe.model';
         <hr>
 `
 })
-export class RecipeItemComponent implements OnInit {
+export class RecipeItemComponent{
 
 
   @Input() recipe: Recipe;
-
-  recipeId;
-
-    constructor() { }
-
-    ngOnInit() { }
-
+  @Input()  recipeId;
 
 }

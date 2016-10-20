@@ -1,3 +1,20 @@
-/**
- * Created by andrey on 16.10.16.
- */
+import {Directive, HostBinding, HostListener} from '@angular/core';
+
+@Directive({
+  selector: '[myDropdown]'
+})
+
+export class DropdownDirective {
+  private isOpen = false;
+  @HostBinding('class.open') get opened(){
+    return this.isOpen;
+  }
+  @HostListener('click') open() {
+    this.isOpen = true;
+  }
+  @HostListener('mouseleave') close() {
+    this.isOpen = false;
+  }
+
+}
+
