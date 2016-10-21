@@ -1,11 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Recipe} from "../shared/recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
+import {Http, Headers, Response} from "@angular/http";
+import 'rxjs/Rx';
+
 
 @Injectable()
 
 export class RecipeService {
 
+  recipesChanged = new EventEmitter<Recipe[]>();
+
+  mainUrl: string = 'https://recipe-beece.firebaseio.com';
 
   recipes: Recipe[] = [
     new Recipe(
@@ -21,7 +27,7 @@ export class RecipeService {
       'http://ekogradmoscow.ru/images/raznoe3/184514_original.jpg', [])
   ];
 
-    constructor() { }
+    constructor( private http: Http ) { }
 
   getRecipes(): Recipe[] {
     return this.recipes;
@@ -42,12 +48,32 @@ export class RecipeService {
     this.recipes.push(recipe);
   }
 
-  addIngredient(name: string, amount:string){
-    this.recipes
+  storeData(){
+    const body = JSON.stringify(this.recipes);
+    const headers = new Headers({
+      'Content-type': 'application/json'
+    });
+    return this.http.put(
+      `${this.mainUrl}/recipes.json`,
+      body,
+      {
+        headers: headers
+      }
+    )
   }
 
-  removeIngredient(index: number){
-    this.recipes
+  fetchData(){
+    return this.http.get(`${this.mainUrl}/recipes.json`)
+        .map((result: Response) => result.json())
+        .subscribe(
+            (data: Recipe[])  =>{
+                this.recipes = data;
+                this.recipesChanged.emit(this.recipes);
+            }
+        );
+
+
   }
+
 
 }

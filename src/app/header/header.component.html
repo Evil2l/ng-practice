@@ -6,12 +6,26 @@
   </ul>
   <ul class="nav navbar-nav navbar-right pull-xs-right">
     <li class="dropdown" myDropdown>
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+      <a class="dropdown-toggle"
+         data-toggle="dropdown"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false"
+      >Recipe Managment
+        <span class="caret"></span>
+      </a>
       <ul class="dropdown-menu">
-        <li><a routerLink="/login">Log In</a></li>
-        <li><a routerLink="/" (click)="logOut()">Log Out</a></li>
+        <li>
+          <a (click)="onStore()" style="cursor: pointer">
+            Store Recipe</a>
+        </li>
+        <li>
+          <a routerLink="/" (click)="logOut()">Log Out</a>
+        </li>
         <li role="separator" class="divider"></li>
-        <li><a routerLink="/sign">Sign In</a></li>
+        <li>
+          <a (click)="onRetrive()" style="cursor: pointer">Retrive Recipe</a>
+        </li>
       </ul>
     </li>
   </ul>

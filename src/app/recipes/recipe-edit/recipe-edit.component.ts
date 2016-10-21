@@ -4,7 +4,6 @@ import {Recipe} from "../../shared/recipe.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeService} from "../recipe.service";
 import {FormArray, FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
-import {Ingredient} from "../../shared/ingredient.model";
 
 @Component({
     selector: 'my-recipe-edit',
@@ -120,8 +119,9 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
     // BUT next step to check if we go there to edit existing component
     if (!this.isNew) {
-      // if it is NOT new element we start simple iteration
-      for(let i = 0; i < this.selectedRecipe.ingredients.length; i++){
+      if (this.selectedRecipe.hasOwnProperty('ingredients')) {
+        // if it is NOT new element we start simple iteration
+        for(let i = 0; i < this.selectedRecipe.ingredients.length; i++){
           // here we create array of ingredients pushing them as FormGroup
           recipeIngredients.push(
             // every form group is an Object with needed properties
@@ -132,7 +132,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
                 Validators.required
               ),
               amount: new FormControl(
-                  this.selectedRecipe.ingredients[i].amount,
+                this.selectedRecipe.ingredients[i].amount,
                 [
                   Validators.required,
                   Validators.pattern("\\d+")
@@ -140,7 +140,9 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
               )
             })
           )
+        }
       }
+
       // here we define simple parts of our components
       recipeName = this.selectedRecipe.name;
       recipeImg = this.selectedRecipe.imagePath;
