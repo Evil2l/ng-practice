@@ -1,4 +1,4 @@
-*** To build my app I used this guys repo - https://github.com/preboot/angular2-webpack.git and left here part of their description to bundle
+*** To build my app I used this guys repo - https://github.com/preboot/angular2-webpack.git and left here part of their description to bundle ng and webpack
 
 # angular2-webpack
 
