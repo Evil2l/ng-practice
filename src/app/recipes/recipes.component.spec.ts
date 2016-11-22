@@ -3,10 +3,10 @@
 //
 // import { TestBed } from '@angular/core/testing';
 //
-// import { HomeComponent } from './home.component';
+// import { HomeComponent } from './recipes.component';
 //
 // describe('Home Component', () => {
-//   const html = '<my-home></my-home>';
+//   const html = '<my-recipes></my-recipes>';
 //
 //   beforeEach(() => {
 //     TestBed.configureTestingModule({declarations: [HomeComponent, TestComponent]});
